@@ -1,6 +1,14 @@
-from app import create_app
+from flask import Flask
 
-app = create_app()
+from flask_app.application.app import main
 
-if __name__ == '__main__':
-    app.run()
+def create_app( object_name ):
+
+    app = Flask(__name__)
+
+    app.config.from_object(object_name)
+
+    # register our blueprints
+    app.register_blueprint(main)
+
+    return app
