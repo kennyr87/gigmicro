@@ -6,7 +6,7 @@ const rename = require('gulp-rename');
 
 const paths = {
   styles: {
-    src: './assets/scss/bootstrap/bootstrap.scss',
+    src: './assets/scss/styles.scss',
     dest: './flask_app/static/dist'
   },
   scripts: {
