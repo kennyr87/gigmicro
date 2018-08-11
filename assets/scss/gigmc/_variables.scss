@@ -1,0 +1,125 @@
+/* Site Color Scheme
+ * Generated from http://colormind.io/bootstrap/
+ */
+
+$gigmc-gray-100: #E1E1DE;
+$gigmc-gray-200: #C9CAC7;
+$gigmc-gray-300: #B1B2B1;
+$gigmc-gray-400: #999B9A;
+$gigmc-gray-500: #818384;
+$gigmc-gray-600: #696C6D;
+$gigmc-gray-700: #515456;
+$gigmc-gray-800: #393D40;
+$gigmc-gray-900: #212529;
+
+$gigmc-baby-blue: #25B0D9;
+$gigmc-apple: #42D816; // main brand color
+$gigmc-leaf: #5C8165;  // accents
+$gigmc-mirage: #181E2B; // background inverted
+$gigmc-gold: #C3A908;
+$gigmc-pomegranate: #F44336;
+
+$gigmc-primary: $gigmc-apple;
+$gigmc-success: $gigmc-leaf;
+$gigmc-info: $gigmc-mirage;
+$gigmc-warning: $gigmc-gold;
+$gigmc-danger: $gigmc-pomegranate;
+$gigmc-light: $gigmc-gray-100;
+$gimc-dark: $gigmc-mirage;
+
+// Bootstrap overrides
+
+$grays: (
+  "100": $gigmc-gray-100,
+  "200": $gigmc-gray-200,
+  "300": $gigmc-gray-300,
+  "400": $gigmc-gray-400,
+  "500": $gigmc-gray-500,
+  "600": $gigmc-gray-600,
+  "700": $gigmc-gray-700,
+  "800": $gigmc-gray-800,
+  "900": $gigmc-gray-900
+) !default;
+
+$theme-colors: (
+    "primary":    $gigmc-primary,
+    "secondary":  $gigmc-gray-100,
+    "success":    $gigmc-success,
+    "info":       $gigmc-info,
+    "warning":    $gicmc-warning,
+    "danger":     $gigmc-danger,
+    "light":      $gigmc-light,
+    "dark":       $gigmc-dark
+) !default;
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-color:                $gimc-gray-900 !default;
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$border-color:                $gigmc-gray-300 !default;
+
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+$text-muted:                  $gigmc-gray-600 !default;
+
+$blockquote-small-color:      $gigmc-gray-600 !default;
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+$table-border-color:          $gigmc-gray-300 !default;
+
+$table-head-bg:               $gigmc-gray-200 !default;
+$table-head-color:            $gigmc-gray-700 !default;
+
+$table-dark-bg:               $gigmc-gray-900 !default;
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background, and border color.
+$btn-link-disabled-color:     $gigmc-gray-600 !default;
+
+// Forms
+$input-disabled-bg:                     $gigmc-gray-200 !default;
+
+$input-color:                           $gigmc-gray-700 !default;
+$input-border-color:                    $gigmc-gray-400 !default;
+$input-placeholder-color:               $gigmc-gray-600 !default;
+$input-group-addon-bg:                  $gigmc-gray-200 !default;
+
+$custom-control-indicator-bg:           $gigmc-gray-300 !default;
+$custom-control-indicator-disabled-bg:          $gigmc-gray-200 !default;
+$custom-control-label-disabled-color:           $gigmc-gray-600 !default;
+
+$custom-select-disabled-color:      $gigmc-gray-600 !default;
+$custom-select-disabled-bg:         $gigmc-gray-200 !default;
+$custom-select-disabled-bg:         $gigmc-gray-200 !default;
+$custom-select-indicator-color:     $gigmc-gray-800 !default;
+
+$custom-range-track-bg:             $gigmc-gray-300 !default;
+
+// Navs
+$nav-link-disabled-color:           $gigmc-gray-600 !default;
+
+$nav-tabs-border-color:             $gigmc-gray-300 !default;
+$nav-tabs-link-hover-border-color:  $gigmc-gray-200 $gigmc-gray-200 $nav-tabs-border-color !default;
+$nav-tabs-link-active-color:        $gigmc-gray-700 !default;
+$nav-tabs-link-active-border-color: $gigmc-gray-300 $gigmc-gray-300 $nav-tabs-link-active-bg !default;
+
+$nav-divider-color:                 $gigmc-gray-200 !default;
+
+// Pagination
+$pagination-border-color:           $gigmc-gray-300 !default;
+
+$pagination-hover-bg:               $gigmc-gray-200 !default;
+$pagination-hover-border-color:     $gigmc-gray-300 !default;
+
+$pagination-disabled-color:         $gigmc-gray-600 !default;
+$pagination-disabled-border-color:  $gigmc-gray-300 !default;
