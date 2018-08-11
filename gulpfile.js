@@ -6,8 +6,8 @@ const rename = require('gulp-rename');
 
 const paths = {
   styles: {
-    src: 'assets/scss/boostrap/**/*.scss',
-    dest: 'flask_app/static/dist/'
+    src: './assets/scss/bootstrap/bootstrap.scss',
+    dest: './flask_app/static/dist'
   },
   scripts: {
     src: './assets/scripts/**/*.js',
@@ -21,11 +21,11 @@ function clean() {
 }
 
 function styles() {
-  return gulp.src(paths.styles.src)
+  return gulp.src( paths.styles.src )
     .pipe(sass())
     .pipe(cleanCSS())
     .pipe(rename( 'bundle.css' ))
-    .pipe(gulp.dest(paths.styles.dest));
+    .pipe(gulp.dest( paths.styles.dest ));
 }
 
 async function buildTasks() {
@@ -33,4 +33,6 @@ async function buildTasks() {
   styles();
 }
 
-gulp.task( 'default', buildTasks);
+gulp.task( 'clean', clean );
+gulp.task( 'styles', styles );
+gulp.task( 'default', buildTasks );
