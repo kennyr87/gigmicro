@@ -12,7 +12,7 @@ class DevConfig(Config):
     ENV = 'dev'
     DEBUG = True
     EXPLAIN_TEMPLATE_LOADING = True
-    # SQLALCHEMY_DATABASE_URI = 'sqlite:///../database.db'
+    SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://root@localhost/gigmicro'
 
     # CACHE_TYPE = 'null'
 
