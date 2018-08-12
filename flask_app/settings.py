@@ -23,3 +23,9 @@ class TestConfig(Config):
 
     # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + db_file.name
     # SQLALCHEMY_ECHO = True
+
+app_config = {
+    'production': ProdConfig,
+    'development': DevConfig,
+    'test': TestConfig
+}
