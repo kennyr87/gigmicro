@@ -1,5 +1,5 @@
 from flask import Flask
-from application.controllers.main import main
+from application.controllers.coming import coming
 from settings import app_config
 from flask_sqlalchemy import SQLAlchemy
 
@@ -13,5 +13,5 @@ def create_app(config_name):
     # initialize database
     db.init_app(app)
     # register our blueprints
-    app.register_blueprint(main)
+    app.register_blueprint(coming)
     return app

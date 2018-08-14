@@ -15,6 +15,9 @@ class Journal(db.Model):
 
     journal_articles = relationship("Article")
 
+    def __repr__(self):
+        return "<Journal( name = %s )>" % self.journal_name
+
 class Article(db.Model):
     __tablename__ = 'gigmc_articles'
 
@@ -29,8 +32,8 @@ class Article(db.Model):
     article_links = db.relationship("ArticleURL")
 
     def __repr__(self):
-        return "<Article(Title='%s', Publish Date='%s')>" % (
-            self.article_name, self.publish_date)
+        return "<Article(Title = %s)>" % (
+            self.article_name)
 
 class Author(db.Model):
     __tablename__ = 'gigmc_authors'
@@ -51,7 +54,7 @@ class Author(db.Model):
         passive_deletes=True)
 
     def __repr__(self):
-        return "<Author(Full Name='%s' '%s')>" % (
+        return "<Author(Full Name=%s %s)>" % (
             self.first_name, self.last_name)
 
 class ArticleURL(db.Model):
