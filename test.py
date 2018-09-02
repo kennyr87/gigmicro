@@ -1,5 +1,12 @@
 # Test sqlalchemy model
 
+def test_db():
+    try:
+        db.session.query("1").from_statement("SELECT 1").all()
+        print('It works')
+    except:
+        return print('Something is broken')
+
 def test_journal_model_class(name, url, issn_p, issn_o):
     j = Journal(
         journal_name = name,
