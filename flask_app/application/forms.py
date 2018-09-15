@@ -19,7 +19,7 @@ def check_length(length):
 
     return _length
 
-class UploadJournal(FlaskForm):
+class JournalForm(FlaskForm):
     """
     Form to upload journals
     """
@@ -38,7 +38,7 @@ class UploadJournal(FlaskForm):
         check_length(8)
     ])
 
-class UploadArticle(FlaskForm):
+class ArticleForm(FlaskForm):
     """
     Form to upload articles
     """
@@ -57,7 +57,7 @@ class UploadArticle(FlaskForm):
         URL('Must be a valid URL.')
     ])
 
-class UploadAuthor(FlaskForm):
+class AuthorForm(FlaskForm):
     """
     Form to upload authors.
     """
