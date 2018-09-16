@@ -1,3 +1,4 @@
+from flask import Blueprint, request
 from core import JournalService, FormError
 from application.forms import JournalForm
 
