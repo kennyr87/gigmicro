@@ -23,18 +23,18 @@ class JournalForm(FlaskForm):
     """
     Form to upload journals
     """
-    journal_name    = StringField('journal_name', validators=[
+    journal_name    = StringField('Journal Name', validators=[
         InputRequired("Journal's name is required"),
         Length(max=127, message='Field must be less than 127 characters')
     ])
-    journal_url     = StringField('journal_url', validators=[
+    journal_url     = StringField('URL', validators=[
         URL(require_tld=True, message='Must be a valid URL'),
         Length(max=255, message='Field must be less than 255 characters')
     ])
-    issn_print      = StringField('issn_print', validators=[
+    issn_print      = StringField('ISSN Print', validators=[
         check_length(8)
     ])
-    issn_online     = StringField('issn_online', validators=[
+    issn_online     = StringField('ISNN Online', validators=[
         check_length(8)
     ])
 
@@ -42,16 +42,16 @@ class ArticleForm(FlaskForm):
     """
     Form to upload articles
     """
-    article_name    = StringField('article_name', validators=[
+    article_name    = StringField('Article Name', validators=[
         InputRequired("Article's name is required."),
         Length(max=127, message='Field must be less than 127 characters')
     ])
     # input date in mm/dd/yyyy format
-    publish_date    = DateField('publish_date', validators=[
+    publish_date    = DateField('Publication Date', validators=[
         InputRequired("Publication date is required.")
     ])
 
-    article_url     = StringField('article_url', validators=[
+    article_url     = StringField('URL', validators=[
         InputRequired("Article's URL is required."),
         Length(max=255, message='Field must be less than 255 characters.'),
         URL('Must be a valid URL.')
@@ -62,13 +62,13 @@ class AuthorForm(FlaskForm):
     Form to upload authors.
     """
     # need to be able to input multiple authors
-    first_name      = StringField('first_name', validators=[
+    first_name      = StringField('First Name', validators=[
         Length(max=31, message='Field must be less than 31 characters.')
     ])
-    middle_initial  = StringField('middle_initial', validators=[
+    middle_initial  = StringField('M', validators=[
         check_length(1)
     ])
-    last_name       = StringField('last_name', validators=[
+    last_name       = StringField('Last Name', validators=[
         InputRequired("Author's last name is required."),
         Length(max=31, message='Field must be less than 31 characters.')
     ])
