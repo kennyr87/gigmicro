@@ -34,7 +34,7 @@ class JournalForm(FlaskForm):
     issn_print      = StringField('ISSN Print', validators=[
         check_length(8)
     ])
-    issn_online     = StringField('ISNN Online', validators=[
+    issn_online     = StringField('ISSN Online', validators=[
         check_length(8)
     ])
 
