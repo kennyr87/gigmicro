@@ -28,7 +28,7 @@ class JournalForm(FlaskForm):
         Length(max=127, message='Field must be less than 127 characters')
     ])
     journal_url     = StringField('journal_url', validators=[
-        URL(require_tld=True, message='Must be a valid URL')
+        URL(require_tld=True, message='Must be a valid URL'),
         Length(max=255, message='Field must be less than 255 characters')
     ])
     issn_print      = StringField('issn_print', validators=[
