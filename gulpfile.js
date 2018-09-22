@@ -3,6 +3,7 @@ const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const del = require('del');
 const rename = require('gulp-rename');
+const parseArgs = require('minimist');
 
 const paths = {
   styles: {
@@ -16,16 +17,27 @@ const paths = {
   clean: './flask_app/static/dist/*'
 };
 
+// CLI options
+const argv = parseArgs(process.argv.slice(2));
+
+const enabled = {
+  prodEnabled: argv.production
+};
+
 function clean() {
   return del( paths.clean );
 }
 
 function styles() {
-  return gulp.src( paths.styles.src )
-    .pipe(sass())
-    .pipe(cleanCSS())
-    .pipe(rename( 'styles.css' ))
-    .pipe(gulp.dest( paths.styles.dest ));
+  let stream = gulp.src( paths.styles.src )
+    .pipe(sass());
+
+    if ( enabled.prodEnabled ) {
+      stream = stream.pipe(cleanCSS());
+    }
+
+    return stream.pipe(rename( 'styles.css' ))
+      .pipe(gulp.dest( paths.styles.dest ));
 }
 
 async function buildTasks() {
