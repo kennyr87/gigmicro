@@ -17,7 +17,7 @@ const paths = {
   clean: './flask_app/static/dist/*'
 };
 
-// CLI options
+// CLI options, use --production to run cleanCSS
 const argv = parseArgs(process.argv.slice(2));
 
 const enabled = {
