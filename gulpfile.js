@@ -24,7 +24,7 @@ function styles() {
   return gulp.src( paths.styles.src )
     .pipe(sass())
     .pipe(cleanCSS())
-    .pipe(rename( 'bundle.css' ))
+    .pipe(rename( 'styles.css' ))
     .pipe(gulp.dest( paths.styles.dest ));
 }
 
