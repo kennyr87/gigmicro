@@ -1,10 +1,29 @@
+{# view application.controllers.forms.journal_form #}
+
 {% extends "base.html" %}
-{% block title %}Add Journal{% endblock %}
+{% from "macros/_forms.html" import render_input_field %}
+{% block title %}Submit Journal{% endblock %}
 {% block body %}
 <form method=POST action=''>
   <div class="form-group">
-    <label for="journal_name">Journal Name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter journal">
+    {{ render_input_field( form.journal_name, class='form-control' ) }}
   </div>
+  <div class="form-row">
+    <div class='form-group col-sm-6'>
+      {{ render_input_field( form.journal_url, class='form-control' ) }}
+    </div>
+    <div class='form-group col-sm-6'>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name='issn_radio' id="issn_online_radio" value="issn_online" checked>
+        <label class="form-check-label" for="issn_online_radio">ISSN Online</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name='issn_radio' id="issn_print_radio" value="issn_print">
+        <label class="form-check-label" for="issn_print_radio">ISSN Print</label>
+      </div>
+      <input class="form-control" required="" id="issn" name="issn" aria-label='issn' value="" type="text">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {% endblock %}
