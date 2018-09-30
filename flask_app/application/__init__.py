@@ -1,9 +1,7 @@
 from flask import Flask, render_template
-from application.controllers import main, forms
+from application.controllers import main, journals
 from settings import app_config
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from application.models import db
 
 def on_404(error):
     return render_template('errors/404.html', error=error), 404
@@ -17,6 +15,6 @@ def create_app(config_name):
     db.init_app(app)
     # register our blueprints
     app.register_blueprint(main.bp)
-    app.register_blueprint(forms.bp)
+    app.register_blueprint(journals.bp)
     app.register_error_handler(404, on_404)
     return app

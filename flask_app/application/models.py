@@ -1,5 +1,7 @@
-from application import db
+from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.dialects.mysql import MEDIUMINT
+
+db = SQLAlchemy()
 
 # Association table for author to article bidirectional relationship
 author_article_assoc    = db.Table('gigmc_author_article', db.Model.metadata,
@@ -25,9 +27,6 @@ class Journal(db.Model):
     issn_online         = db.Column(db.CHAR(8), unique=True)
 
     journal_articles    = db.relationship("Article")
-
-    def __repr__(self):
-        return "<Journal( name = %s )>" % self.journal_name
 
 class Article(db.Model):
     __tablename__   = 'gigmc_articles'
