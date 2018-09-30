@@ -1,22 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
-
-#: Flask-SQLAlchemy extension instance
-db = SQLAlchemy()
-
-
-class AppError(Exception):
-    """Base application error class."""
-
-    def __init__(self, msg):
-        self.msg = msg
-
-
-class FormError(Exception):
-    """Raise when an error processing a form occurs."""
-
-    def __init__(self, errors=None):
-        self.errors = errors
-
+from application.models import db
 
 class Service(object):
     """
