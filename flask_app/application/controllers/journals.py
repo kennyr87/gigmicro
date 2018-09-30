@@ -1,18 +1,19 @@
 from flask import Blueprint, request
-from core import JournalService, FormError
+from application.core import JournalService, FormError
 from application.forms import JournalForm
+from . import route
 
 bp          = Blueprint('journals', __name__, url_prefix='/journals')
 _journals   = JournalService()
 
-@bp.route('/')
+@route(bp, '/')
 def list_journals():
     """
     Returns a list of all journal instances
     """
     return _journals.all()
 
-@bp.route('/<journal_id>'):
+@route(bp, '/<journal_id>')
 def get_journal():
     """
     Returns a journal instance.
@@ -21,7 +22,7 @@ def get_journal():
     """
     return _journals.get_or_404(journal_id)
 
-@bp.route('/', method=['POST'])
+@route(bp, '/', methods=['POST'])
 def add_journal():
     """
     Creates a new journal.
@@ -34,7 +35,7 @@ def add_journal():
         return _journals.create(**request.json)
     raise FormError(form.errors)
 
-@bp.route('/<journal_id>', method=['PUT']):
+@route(bp, '/<journal_id>', methods=['PUT'])
 def update_journal():
     """
     Updates a journal entry
@@ -48,7 +49,7 @@ def update_journal():
         return _journals.update(j, **request.json)
     raise FormError(form.errors)
 
-@bp.route('<journal_id>', method=['DELETE']):
+@route(bp, '<journal_id>', methods=['DELETE'])
 def delete_journal():
     """
     Deletes a journal entry.
