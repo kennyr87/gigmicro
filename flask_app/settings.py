@@ -24,7 +24,7 @@ class TestConfig(Config):
     ENV = 'test'
     DEBUG = True
     TESTING = True
-
+    SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://root@localhost/gigmicro' + socket
     # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + db_file.name
     # SQLALCHEMY_ECHO = True
 
