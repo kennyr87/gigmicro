@@ -10,29 +10,37 @@ _journals   = JournalService()
 def list_journals():
     """
     Returns a list of all journal instances
+
+    :return: All journal instances
+    :rtype: dict
     """
-    return _journals.all()
+    j = _journals.all()
+    return j.to_json()
 
 @route(bp, '/<journal_id>')
 def get_journal():
     """
     Returns a journal instance.
 
-    :return: Instance of Journal
+    :return: Journal instance
+    :rtype: dict
     """
-    return _journals.get_or_404(journal_id)
+    j = _journals.get_or_404(journal_id)
+    return j.to_json()
 
 @route(bp, '/', methods=['POST'])
 def add_journal():
     """
     Creates a new journal.
 
-    :return: Instance of Journal.
+    :return: New journal instance
+    :rtype: dict
     """
     form    = JournalForm()
 
     if form.validate_on_submit():
-        return _journals.create(**request.json)
+        j = _journals.create(**request.json)
+        return j.to_json()
     raise FormError(form.errors)
 
 @route(bp, '/<journal_id>', methods=['PUT'])
@@ -41,12 +49,14 @@ def update_journal():
     Updates a journal entry
 
     :return: Instance of Journal
+    :rtype: dict
     """
     form    = JournalForm()
 
     if form.validate_on_submit():
         j   = _journals.get_or_404(journal_id)
-        return _journals.update(j, **request.json)
+        j   = _journals.update(j, **request.json)
+        return j.to_json()
     raise FormError(form.errors)
 
 @route(bp, '<journal_id>', methods=['DELETE'])
@@ -59,5 +69,4 @@ def delete_journal():
     """
     j   = _journals.get_or_404(journal_id)
     _journals.delete(j)
-
     return None, 204
