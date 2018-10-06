@@ -1,5 +1,13 @@
+"""
+    application.models
+    ~~~~~~~~~~~~~~~~~~
+
+    SQL Alchemy models
+"""
+
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.dialects.mysql import MEDIUMINT
+from helpers import JsonSerializer
 
 db = SQLAlchemy()
 
@@ -16,8 +24,11 @@ author_article_assoc    = db.Table('gigmc_author_article', db.Model.metadata,
         nullable=False)
 )
 
+class JournalJsonSerializer(JsonSerializer):
+    __json_hidden__     = ['journal_articles']
+
 # map classes to database tables
-class Journal(db.Model):
+class Journal(JournalJsonSerializer, db.Model):
     __tablename__       = 'gigmc_journals'
 
     journal_id          = db.Column(MEDIUMINT, primary_key=True)
@@ -27,6 +38,10 @@ class Journal(db.Model):
     issn_online         = db.Column(db.CHAR(8), unique=True)
 
     journal_articles    = db.relationship("Article")
+
+    def __repr__(self):
+        return "<Journal(Name = %s)>" % (
+            self.journal_name)
 
 class Article(db.Model):
     __tablename__   = 'gigmc_articles'
