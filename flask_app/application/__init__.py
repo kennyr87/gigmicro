@@ -1,3 +1,8 @@
+"""
+    application
+    ~~~~~
+    main application package
+"""
 from flask import Flask, render_template
 from application.controllers import main, journals
 from settings import app_config
