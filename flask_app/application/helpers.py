@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+"""
+    application.helpers
+    ~~~~~~~~~~~~~~~~~~~
+
+    application utilities
+"""
 from flask.json import JSONEncoder as BaseJSONEncoder
 
 class JSONEncoder(BaseJSONEncoder):

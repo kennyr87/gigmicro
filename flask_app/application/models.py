@@ -7,7 +7,7 @@
 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.dialects.mysql import MEDIUMINT
-from helpers import JsonSerializer
+from .helpers import JsonSerializer
 
 db = SQLAlchemy()
 
