@@ -4,19 +4,20 @@
     journal tests module
 """
 
-from ..factories import CategoryFactory, ProductFactory
-from . import AppTestCase
+from .setup import AppTestCase
+from application.models import Journal
 
 class JournalTestCase(AppTestCase):
 
     def _create_fixtures(self):
         super(JournalTestCase, self)._create_fixtures()
-        pass
+        j = Journal.query.get(1)
+        self.journal = j
 
     def test_get_journals(self):
         r = self.jget('/journals')
         self.assertOkJson(r)
 
     def test_get_journal(self):
-        r = self.jget('/journals/%s' % self.product.id)
+        r = self.jget('/journals/%s' % self.journal.journal_id)
         self.assertOkJson(r)

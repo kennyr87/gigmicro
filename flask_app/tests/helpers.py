@@ -6,8 +6,8 @@
 
 from datetime import datetime, timedelta
 from hashlib import sha1
-
-import simplejson as json
+import hmac
+import json
 
 from werkzeug.utils import parse_cookie
 

@@ -3,27 +3,18 @@
     ~~~~~
     tests package
 """
-from application import create_app
-from unittest import TestCase
-from .helpers import FlaskTestCaseMixin
+from unittest import TestSuite, TextTestRunner
+from tests.journal_tests import JournalTestCase
 
-class AppTestCase(FlaskTestCaseMixin, TestCase):
+class AppTestSuite(TestSuite):
 
-    def _create_app(self):
-        return create_app('test')
+    test_cases = (JournalTestCase())
 
-    def _create_fixtures(self):
-        pass
+    def __init__(self):
+        super(TestSuite, self).__init__()
+        self.addTest(test_cases)
 
-    def setUp(self):
-        super(AppTestCase, self).setUp()
-        self.app = self._create_app()
-        self.client = self.app.test_client()
-        self.app_context = self.app.app_context()
-        self.app_context.push()
-        self._create_fixtures()
-        self._create_csrf_token()
-
-    def tearDown(self):
-        super(AppTestCase, self).tearDown()
-        self.app_context.pop()
+if __name__ == '__main__':
+    suite = AppTestSuite()
+    runner = unittest.TextTestRunner()
+    runner.run(suite)
