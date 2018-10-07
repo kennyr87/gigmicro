@@ -14,19 +14,17 @@ def list_journals():
     :return: All journal instances
     :rtype: dict
     """
-    j = _journals.all()
-    return j.to_json()
+    return _journals.all()
 
 @route(bp, '/<journal_id>')
-def get_journal():
+def get_journal(journal_id):
     """
     Returns a journal instance.
 
     :return: Journal instance
     :rtype: dict
     """
-    j = _journals.get_or_404(journal_id)
-    return j.to_json()
+    return _journals.get_or_404(journal_id)
 
 @route(bp, '/', methods=['POST'])
 def add_journal():
@@ -39,8 +37,7 @@ def add_journal():
     form    = JournalForm()
 
     if form.validate_on_submit():
-        j = _journals.create(**request.json)
-        return j.to_json()
+        return _journals.create(**request.json)
     raise FormError(form.errors)
 
 @route(bp, '/<journal_id>', methods=['PUT'])
@@ -56,7 +53,7 @@ def update_journal():
     if form.validate_on_submit():
         j   = _journals.get_or_404(journal_id)
         j   = _journals.update(j, **request.json)
-        return j.to_json()
+        return j
     raise FormError(form.errors)
 
 @route(bp, '<journal_id>', methods=['DELETE'])
