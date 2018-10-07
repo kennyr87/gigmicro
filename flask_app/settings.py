@@ -1,10 +1,19 @@
-# Flask configuration object
-# @see http://flask.pocoo.org/docs/1.0/config/#configuration-basics
-#
+"""
+    settings
+    ~~~~~~~~~~~~~~~
+
+    application settings module
+"""
+import os
+
 socket   = '?unix_socket=/var/run/mysqld/mysqld.sock'
 
 class Config(object):
-    SECRET_KEY = 'REPLACE ME'
+    """
+    Base class for Flask configuration `objects
+    <http://flask.pocoo.org/docs/1.0/config/#configuration-basics>`
+    """
+    SECRET_KEY = os.urandom(16)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class ProdConfig(Config):
