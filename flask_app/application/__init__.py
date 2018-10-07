@@ -7,6 +7,7 @@ from flask import Flask, render_template
 from application.controllers import main, journals
 from settings import app_config
 from application.models import db
+from application.helpers import JSONEncoder
 
 def on_404(error):
     return render_template('errors/404.html', error=error), 404
@@ -18,6 +19,8 @@ def create_app(config_name):
     app.config.from_object(app_config[config_name])
     # initialize database
     db.init_app(app)
+    # Set the default JSON encoder
+    app.json_encoder = JSONEncoder
     # register our blueprints
     app.register_blueprint(main.bp)
     app.register_blueprint(journals.bp)
