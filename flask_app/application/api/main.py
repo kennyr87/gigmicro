@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from application.controllers import journals
+from application.api import journals
 
 bp = Blueprint('main', __name__)
 

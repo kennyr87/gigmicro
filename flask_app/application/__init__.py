@@ -4,7 +4,7 @@
     main application package
 """
 from flask import Flask, render_template
-from application.controllers import main, journals
+from application.api import main, journals
 from settings import app_config
 from application.models import db
 from application.helpers import JSONEncoder
