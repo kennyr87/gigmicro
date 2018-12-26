@@ -114,7 +114,7 @@ class FlaskTestCaseMixin(object):
         :param response: The test client response object
         :param content_type: The expected content type
         """
-        self.assertEquals(content_type, response.headers['Content-Type'])
+        self.assertEqual(content_type, response.headers['Content-Type'])
         return response
 
     def assertOkHtml(self, response):
