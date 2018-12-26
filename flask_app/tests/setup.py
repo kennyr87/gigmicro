@@ -8,7 +8,12 @@ from unittest import TestCase
 from .helpers import FlaskTestCaseMixin
 
 class AppTestCase(FlaskTestCaseMixin, TestCase):
+    """Create shared fixtures for all test cases
 
+    Attributes:
+        app (:obj:``)
+        client (:obj: ``): Flask test client
+    """
     def _create_app(self):
         return create_app('test')
 
