@@ -3,7 +3,7 @@
     ~~~~~
     tests package
 """
-from unittest import TestSuite, TextTestRunner
+from unittest import TestSuite, TextTestRunner, defaultTestLoader
 from .journal_tests import JournalTestCase
 
 class AppTestSuite(TestSuite):
