@@ -37,7 +37,7 @@ class Journal(JournalJsonSerializer, db.Model):
     issn_print          = db.Column(db.CHAR(8), unique=True)
     issn_online         = db.Column(db.CHAR(8), unique=True)
 
-    journal_articles    = db.relationship("Article")
+    journal_articles    = db.relationship("Article", backref='journal')
 
     def __repr__(self):
         return "<Journal(Name = %s)>" % (
@@ -54,7 +54,7 @@ class Article(db.Model):
         db.ForeignKey("gigmc_journals.journal_id"),
         nullable=False)
 
-    article_links   = db.relationship("ArticleURL")
+    article_links   = db.relationship("ArticleURL", backref='article')
 
     def __repr__(self):
         return "<Article(Title = %s)>" % (
