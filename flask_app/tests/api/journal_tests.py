@@ -9,10 +9,15 @@ from application.models import Journal
 
 class JournalTestCase(AppTestCase):
 
+    """Fixture and test cases for journals api.
+
+    Attributes:
+        journal (:obj:`Journal`): Model for journal tables
+
+    """
     def _create_fixtures(self):
         super(JournalTestCase, self)._create_fixtures()
-        j = Journal.query.get(1)
-        self.journal = j
+        self.journal = Journal
 
     def test_get_journals(self):
         r = self.jget('/journals')
