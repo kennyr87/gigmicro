@@ -4,20 +4,20 @@
     journal tests module
 """
 
-from .setup import AppTestCase
-from application.models import Journal
+from tests.setup import AppTestCase
+from tests.factory import JournalFactory, ArticleFactory
 
 class JournalTestCase(AppTestCase):
 
     """Fixture and test cases for journals api.
 
     Attributes:
-        journal (:obj:`Journal`): Model for journal tables
+        journal (:obj:`JournalFactory`): Journal test data
 
     """
     def _create_fixtures(self):
         super(JournalTestCase, self)._create_fixtures()
-        self.journal = Journal
+        self.journal = JournalFactory()
 
     def test_get_journals(self):
         r = self.jget('/journals')
