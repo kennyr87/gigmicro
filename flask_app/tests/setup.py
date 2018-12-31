@@ -57,5 +57,5 @@ class AppTestCase(FlaskTestCaseMixin, TestCase):
         self.app_context.pop()
 
         # remove SQL Alchemy session
-         self.session.rollback()
-         self.session.close()
+        self.session.rollback()
+        self.session.close()
