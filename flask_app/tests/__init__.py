@@ -5,10 +5,7 @@
     tests package
 """
 from unittest import TestSuite, TextTestRunner, defaultTestLoader
-from .journal_tests import JournalTestCase
-from sqlalchemy.orm import scoped_session, sessionmaker
-
-Session = scoped_session(sessionmaker())
+from tests.api.journal_tests import JournalTestCase
 
 class AppTestSuite(TestSuite):
 
@@ -21,5 +18,5 @@ class AppTestSuite(TestSuite):
 # need to add code to configure scoped_session
 if __name__ == '__main__':
     suite = AppTestSuite()
-    runner = TextTestRunner()
+    runner = AppTestRunner()
     runner.run(suite)
