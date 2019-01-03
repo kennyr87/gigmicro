@@ -102,7 +102,7 @@ class FlaskTestCaseMixin(object):
             status_code: The expected status code
 
         """
-        self.assertEquals(status_code, response.status_code)
+        self.assertEqual(status_code, response.status_code)
         return response
 
     def assertOk(self, response):
