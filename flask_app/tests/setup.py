@@ -7,21 +7,7 @@
 from application import create_app
 from unittest import TestCase, TextTestRunner
 from tests.helpers import FlaskTestCaseMixin
-from tests import Session
-from tests.settings import SQLALCHEMY_DATABASE_URI
-from sqlalchemy import create_engine
-
-class AppTestRunner(TextTestRunner):
-    """Basic text test runner implementation.
-
-    """
-    def __init__(self):
-        """Configure SQLAlchemy session on start.
-
-        """
-        super(AppTestRunner, self).__init__()
-        engine = create_engine(SQLALCHEMY_DATABASE_URI)
-        Session.configure(bind=engine)
+from tests.settings import SESSION
 
 class AppTestCase(FlaskTestCaseMixin, TestCase):
     """Create shared fixtures for all test cases
@@ -48,9 +34,9 @@ class AppTestCase(FlaskTestCaseMixin, TestCase):
         self._create_csrf_token()
 
         # setup SQL Alchemy session for factories
-        self.session = Session()
+        self.session = SESSION
 
-    def tearDown(self):
+def tearDown(self):
         super(AppTestCase, self).tearDown()
 
         # remove Flask request context
