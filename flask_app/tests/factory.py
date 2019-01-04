@@ -8,15 +8,14 @@
 
 from factory import SubFactory, Faker, alchemy, Sequence, LazyAttribute
 from application.models import Journal, Article, Author, ArticleURL
-from tests.setup import Session
+from tests.settings import SESSION
 
-class AppFactory(alchemy.SQLAlchemyModelFactory):
-
-    sqlalchemy_session              = Session
+class AppFactory(object):
+    sqlalchemy_session              = SESSION
     sqlalchemy_session_persistence  = 'commit'
 
-class JournalFactory(AppFactory):
-    class Meta:
+class JournalFactory(alchemy.SQLAlchemyModelFactory):
+    class Meta(AppFactory):
         model       = Journal
 
     journal_name    = Faker('bs')
@@ -24,9 +23,8 @@ class JournalFactory(AppFactory):
     issn_print      = Faker('ean', length=8)
     issn_online     = Faker('ean', length=8)
 
-
-class ArticleFactory(AppFactory):
-    class Meta:
+class ArticleFactory(alchemy.SQLAlchemyModelFactory):
+    class Meta(AppFactory):
         model       = Article
 
     article_name    = Faker('text', max_nb_chars=127)
