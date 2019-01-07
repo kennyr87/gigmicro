@@ -2,6 +2,18 @@ from functools import wraps
 from flask import jsonify
 
 def route(bp, *args, **kwargs):
+    """Serializes the return value of view methods to JSON.
+
+    It turns the JSON output into a Response object with the 
+    application/json mimetype.
+
+    Args:
+        bp: Flask Blueprint object
+
+    Returns:
+        Flask Response object.
+
+    """
     kwargs.setdefault('strict_slashes', False)
 
     def decorator(f):
