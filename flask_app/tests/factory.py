@@ -6,7 +6,7 @@
     Factories for test fixture data
 """
 
-from factory import SubFactory, Faker, alchemy, Sequence, LazyAttribute
+from factory import SubFactory, Faker, alchemy, sequence
 from application.models import Journal, Article, Author, ArticleURL
 from tests.settings import SESSION
 
@@ -17,6 +17,14 @@ class AppFactory(object):
 class JournalFactory(alchemy.SQLAlchemyModelFactory):
     class Meta(AppFactory):
         model       = Journal
+
+    @sequence
+    def journal_id(n):
+        """Add integer to counter to avoid duplicate id error.
+
+        """
+        id = n + 2
+        return '%d' % id
 
     journal_name    = Faker('bs')
     journal_url     = Faker('url')
