@@ -5,9 +5,9 @@
     tests package
 """
 from unittest import TestSuite, TextTestRunner, defaultTestLoader
-from tests.api.journal_tests import JournalTestCase
+from .api.journal_tests import JournalTestCase
 from sqlalchemy import create_engine
-from tests.settings import SESSION, SQLALCHEMY_DATABASE_URI 
+from .settings import SESSION, SQLALCHEMY_DATABASE_URI 
 
 class AppTestSuite(TestSuite):
 

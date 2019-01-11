@@ -7,8 +7,8 @@
 """
 
 from factory import SubFactory, Faker, alchemy, sequence
-from application.models import Journal, Article, Author, ArticleURL
-from tests.settings import SESSION
+from flask_app.application.models import Journal, Article, Author, ArticleURL
+from .settings import SESSION
 
 class AppFactory(object):
     sqlalchemy_session              = SESSION

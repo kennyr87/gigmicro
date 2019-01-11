@@ -5,8 +5,8 @@
 """
 
 from unittest import skip
-from tests.setup import AppTestCase
-from tests.factory import JournalFactory, ArticleFactory
+from ..setup import AppTestCase
+from ..factory import JournalFactory, ArticleFactory
 
 class JournalTestCase(AppTestCase):
 

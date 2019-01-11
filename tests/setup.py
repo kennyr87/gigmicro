@@ -4,10 +4,10 @@
     ~~~~~
     test setup environment
 """
-from application import create_app
+from flask_app.application import create_app
 from unittest import TestCase, TextTestRunner
-from tests.helpers import FlaskTestCaseMixin
-from tests.settings import SESSION
+from .helpers import FlaskTestCaseMixin
+from .settings import SESSION
 
 class AppTestCase(FlaskTestCaseMixin, TestCase):
     """Create shared fixtures for all test cases
