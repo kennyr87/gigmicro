@@ -4,10 +4,10 @@
     main application package
 """
 from flask import Flask, render_template
-from application.api import main, journals
-from settings import app_config
-from application.models import db
-from application.helpers import JSONEncoder
+from .api import main, journals
+from ..settings import app_config
+from .models import db
+from .helpers import JSONEncoder
 
 def on_404(error):
     return render_template('errors/404.html', error=error), 404

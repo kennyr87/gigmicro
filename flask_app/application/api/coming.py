@@ -1,3 +1,9 @@
+"""
+    application.api.coming
+    ~~~~~
+    comming blueprint
+"""
+
 from flask import Blueprint, render_template
 
 coming = Blueprint('coming', __name__)

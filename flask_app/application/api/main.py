@@ -1,5 +1,11 @@
+"""
+    application.api.main
+    ~~~~~
+    main application endpoints
+"""
+
 from flask import Blueprint, render_template
-from application.api import journals
+from . import journals
 
 bp = Blueprint('main', __name__)
 

@@ -1,3 +1,8 @@
+"""
+    application.forms
+    ~~~~~
+    forms 
+"""
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField
 from wtforms.validators import InputRequired, Length, URL, ValidationError

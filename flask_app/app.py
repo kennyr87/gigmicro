@@ -1,5 +1,11 @@
+"""
+    app
+    ~~~~~
+    application entry point
+"""
+
 import os
-from application import create_app
+from .application import create_app
 
 config_name = os.getenv('FLASK_CONFIG')
 

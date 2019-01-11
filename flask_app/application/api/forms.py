@@ -1,5 +1,11 @@
+"""
+    application.api.forms
+    ~~~~~
+    forms blueprint
+"""
+
 from flask import Blueprint, render_template
-from application.forms import JournalForm
+from ..forms import JournalForm
 
 bp = Blueprint('forms', __name__, url_prefix='/forms')
 

@@ -1,6 +1,12 @@
+"""
+    application.api.journals
+    ~~~~~
+    journals endpoints
+"""
+
 from flask import Blueprint, request
-from application.core import JournalService, FormError
-from application.forms import JournalForm
+from ..core import JournalService, FormError
+from ..forms import JournalForm
 from . import route
 
 bp          = Blueprint('journals', __name__, url_prefix='/journals')
