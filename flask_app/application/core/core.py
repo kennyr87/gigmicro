@@ -1,4 +1,11 @@
-from application.models import db
+# -*- coding: utf-8 -*-
+"""
+    flask_app.application.core.core
+    ~~~~~
+    core services package
+"""
+
+from ..models import db
 
 class Service(object):
     """

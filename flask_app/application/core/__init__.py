@@ -1,5 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+    flask_app.application.core
+    ~~~~~
+    core module
+"""
+
 from .core import Service
-from application import models
+from .. import models
 
 class AppError(Exception):
     """Base application error class."""
