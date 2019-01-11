@@ -25,6 +25,3 @@ def run_tests():
     suite = AppTestSuite()
     runner = TextTestRunner()
     runner.run(suite)
-
-if __name__ == '__main__':
-    run_tests()
