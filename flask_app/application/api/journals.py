@@ -47,7 +47,7 @@ def add_journal():
     raise FormError(form.errors)
 
 @route(bp, '/<journal_id>', methods=['PUT'])
-def update_journal():
+def update_journal(journal_id):
     """
     Updates a journal entry
 
@@ -63,7 +63,7 @@ def update_journal():
     raise FormError(form.errors)
 
 @route(bp, '<journal_id>', methods=['DELETE'])
-def delete_journal():
+def delete_journal(journal_id):
     """
     Deletes a journal entry.
 
