@@ -31,7 +31,6 @@ class AppTestCase(FlaskTestCaseMixin, TestCase):
         self.app_context = self.app.app_context()
         self.app_context.push()
         self._create_fixtures()
-        self._create_csrf_token()
 
         # setup SQL Alchemy session for factories
         self.session = SESSION

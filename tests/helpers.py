@@ -36,8 +36,6 @@ class FlaskTestCaseMixin(object):
     def _html_data(self, **kwargs):
         """HTTP headers for HTML form
         """
-        if 'data' in kwargs:
-            kwargs['data']['csrf_token'] = self.csrf_token
         if not kwargs.get('content_type'):
             kwargs['content_type'] = 'application/x-www-form-urlencoded'
         return kwargs
@@ -46,7 +44,6 @@ class FlaskTestCaseMixin(object):
         """HTTP headers to send JSON data
         """
         if 'data' in kwargs:
-            kwargs['data']['csrf_token'] = self.csrf_token
             kwargs['data'] = json.dumps(kwargs['data'])
         if not kwargs.get('content_type'):
             kwargs['content_type'] = 'application/json'
