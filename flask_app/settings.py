@@ -15,6 +15,7 @@ class Config(object):
     """
     SECRET_KEY = os.urandom(16)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    WTF_CSRF_ENABLED = False
 
 class ProdConfig(Config):
     ENV = 'prod'
