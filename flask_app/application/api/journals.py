@@ -6,7 +6,7 @@
 
 from flask import Blueprint, request
 from ..core import JournalService, FormError
-from ..forms import JournalForm
+from ..forms import NewJournalForm, UpdateJournalForm
 from . import route
 
 bp          = Blueprint('journals', __name__, url_prefix='/journals')
@@ -40,7 +40,7 @@ def add_journal():
     :return: New journal instance
     :rtype: dict
     """
-    form    = JournalForm()
+    form    = NewJournalForm()
 
     if form.validate_on_submit():
         return _journals.create(**request.json)
@@ -54,7 +54,7 @@ def update_journal(journal_id):
     :return: Instance of Journal
     :rtype: dict
     """
-    form    = JournalForm()
+    form    = UpdateJournalForm()
 
     if form.validate_on_submit():
         j   = _journals.get_or_404(journal_id)
