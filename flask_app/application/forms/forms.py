@@ -1,28 +1,13 @@
+# -*- coding: utf-8 -*-
 """
-    application.forms
+    flask_app.application.forms.forms
     ~~~~~
-    forms 
+    forms module
 """
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField
 from wtforms.validators import InputRequired, Length, URL, ValidationError, Optional
-
-def check_length(length):
-    """
-    Validates length of fixed length field
-
-    :param int length: Length of the field
-    :return Callable that raises validation error
-    """
-    length      = int(length)
-    message     = 'Field must be %d characters long.' % (length)
-
-    def _length(form, field):
-        l = field.data and ( len(field.data) or 0 )
-        if l != length:
-            raise ValidationError(message)
-
-    return _length
+from .validators import check_length
 
 class NewJournalForm(FlaskForm):
     """
