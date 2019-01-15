@@ -9,7 +9,7 @@ from flask import Flask
 from .settings import app_config
 from .application.api import main, journals
 from .application.models import db
-from .application.helpers import JSONEncoder
+from .helpers import JSONEncoder
 
 def create_app(config_name):
     """
