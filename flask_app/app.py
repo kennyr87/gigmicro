@@ -1,11 +1,12 @@
+# -*- coding: utf-8 -*-
 """
-    app
+    flask_app.app
     ~~~~~
     application entry point
 """
 
 import os
-from .application import create_app
+from .factory import create_app
 
 config_name = os.getenv('FLASK_CONFIG')
 
