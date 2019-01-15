@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    application.helpers
+    flask_app.helpers
     ~~~~~~~~~~~~~~~~~~~
 
     application utilities
